@@ -1,20 +1,26 @@
-#include<iostream>
+#include <iostream>
+#include <string>
 using namespace std;
-
-int palindrome(int n)
-{
-  int num = 0 , i=n;
-  while(i!=0)
-  {
-    num *= 10;
-    num += i%10;
-    i /=10;
-  }
-  return num;
-}
 
 int main()
 {
-  cout<<palindrome(1992)<<endl;
+  string s;
+  cin >> s;
+
+  char arr[] = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'};
+
+  for (int i = 0; i < s.length(); i++)
+  {
+    for (int j = 0; j < 10; j++)
+    {
+      if (s[i] == arr[j])
+      {
+        cout << "Not Consonant" << endl;
+        return 0;
+      }
+    }
+  }
+  cout << "Consonant" << endl;
+
   return 0;
 }
