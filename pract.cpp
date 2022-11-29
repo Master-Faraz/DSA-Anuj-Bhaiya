@@ -1,26 +1,36 @@
 #include <iostream>
-#include <string>
 using namespace std;
+
+void SWAP(long int &a, long int &b)
+{
+  a = a ^ b;
+  b = a ^ b;
+  a = a ^ b;
+}
 
 int main()
 {
-  string s;
-  cin >> s;
-
-  char arr[] = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'};
-
-  for (int i = 0; i < s.length(); i++)
+  int t;
+  cin >> t;
+  while (t--)
   {
-    for (int j = 0; j < 10; j++)
+    long int size;
+    cin >> size;
+    long int arr[size];
+
+    for (long int i = 0; i < size; i++)
     {
-      if (s[i] == arr[j])
-      {
-        cout << "Not Consonant" << endl;
-        return 0;
-      }
+      cin >> arr[i];
+    }
+
+    for (long int i = 0, j = size - 1; i < j; i++, j--)
+    {
+      SWAP(arr[i], arr[j]);
+    }
+
+    for (long int i = 0; i < size; i++)
+    {
+      cout << arr[i] << " ";
     }
   }
-  cout << "Consonant" << endl;
-
-  return 0;
 }
