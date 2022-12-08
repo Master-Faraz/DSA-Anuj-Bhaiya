@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.lang.*;
 
 public class Recrussion {
     public static void main(String[] args) {
@@ -26,43 +27,26 @@ public class Recrussion {
 
         // System.out.println(Fast_Power(2, 5));
         // System.out.println(Matrix_Path(4, 2));
-        Josephus_Problem_iteration(6, 3);
-        ;
+        // Josephus_Problem_iteration(6, 3);
+        // System.out.println(Josephus_Problem(5, 3));
 
     }
 
-    static void Josephus_Problem_iteration(int count, int k) {
-        int arr[] = new int[count];
-        for (int i = 0; i < count; i++)// . Initialize
-        {
-            arr[i] = i;
+    static Boolean Palindrome_String_Iteration(String s) {
+        String temp = new String();
+        for (int i = s.length() - 1; i >= 0; i--) {
+
+                        
         }
-        // for (int i = 0; i < count; i++)// . Print
-        // {
-        // System.out.println(arr[i]);
-        // }
-        int killer = 0;
-        while (count != 1) {
-            killer = ((killer + (k + 1)) % (count - 1));
-            arr[killer - 1] = -1;
-
-            System.out.println("Killed : " + (killer - 1));
-
-            count--;
-        }
-
-        // for (int i = 0; i < count; i++) {
-        // // if (arr[i] != -1)
-        // System.out.println(arr[i]);
-        // }
-
+        return true;
     }
 
-    // static int Josephus_problem_recurssion(int count , int k )
-    // {
-    //     if(count ==1)
-
-    // }
+    static int Josephus_Problem(int n, int k) {
+        if (n == 1)
+            return 0;
+        else
+            return ((Josephus_Problem(n - 1, k) + k) % n);
+    }
 
     static int Matrix_Path(int n, int m) // . Only right and bottum is allowed
     {
