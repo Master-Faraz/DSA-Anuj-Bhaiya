@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-string Swap(string s, int a, int b)
+string Swap(string &s, int a, int b)
 {
   char temp = s[a];
   s[a] = s[b];
@@ -67,21 +67,37 @@ void PowerSet(string s, int n, string curr)
   PowerSet(s, n + 1, curr);
 }
 
-void Permutation(string s, int l, int r)
+// void Permutation(string s, int l, int r)
+// {
+//   if (l == r)
+//   {
+//     cout << s << endl;
+//     return;
+//   }
+
+//   for (int i = l; i <= r; i++)
+//   {
+//     s = Swap(s, l, r);
+
+//     Permutation(s, l + 1, r);
+
+//     s = Swap(s, l, i);
+//   }
+// }
+
+void permutation(string s, int i)
 {
-  if (l == r)
+  if (i >= s.length())
   {
     cout << s << endl;
     return;
   }
 
-  for (int i = l; i <= r; i++)
+  for (int j = i; j < s.length(); j++)
   {
-    s = Swap(s, l, r);
-
-    Permutation(s, l + 1, r);
-
-    s = Swap(s, l, i);
+    Swap(s, i, j);
+    permutation(s, i + 1);
+    Swap(s, i, j);
   }
 }
 
@@ -99,7 +115,9 @@ int main()
 
   // cout<<Swap(s , 1 ,2);
 
-  Permutation(s, 0, s.length() - 1);
+  // Permutation(s, 0, s.length() - 1);
+
+  permutation(s, 0);
 
   return 0;
 }
