@@ -1,9 +1,11 @@
 import java.util.Scanner;
+import java.lang.reflect.Array;
 import java.util.*;
 
 public class Permutation_of_String {
 
     public static void main(String[] args) {
+        // String s = "Faraz";
 
         // System.out.println("Enter a String ");
         // Scanner sc = new Scanner(System.in);
@@ -13,7 +15,11 @@ public class Permutation_of_String {
         // Palindrome_String_Reverse(s);
         // System.out.println(Palindrome_String_Recurssion(s, 0, s.length() - 1));
 
-        Powerset("abc", 0, "");
+        // Powerset("abc", 0, "");
+
+        // System.out.println(SWAP(s , 0 , 4));
+
+        Permutation_STR("abc", 0);
 
     }
 
@@ -74,4 +80,32 @@ public class Permutation_of_String {
         Powerset(s, n + 1, curr);
     }
 
+    public static String SWAP(String s, int i, int j) {
+
+        char[] arr = s.toCharArray(); // . String to array
+
+        char t = arr[i];
+        arr[i] = arr[j];
+        arr[j] = t;
+
+        String temp = new String(arr); // . Array to String
+
+        return temp;
+    }
+
+    public static void Permutation_STR(String s, int i) {
+
+        if (i >= s.length()) {
+            System.out.println(s);
+            return;
+        }
+
+        for (int j = i; j <= s.length() - 1; j++) // . For Swapping to itself until hit base case and backtrack
+        {
+            s = SWAP(s, i, j);
+            Permutation_STR(s, i + 1);
+            s = SWAP(s, i, j);
+        }
+
+    }
 }
