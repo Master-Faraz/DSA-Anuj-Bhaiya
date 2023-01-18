@@ -67,24 +67,6 @@ void PowerSet(string s, int n, string curr)
   PowerSet(s, n + 1, curr);
 }
 
-// void Permutation(string s, int l, int r)
-// {
-//   if (l == r)
-//   {
-//     cout << s << endl;
-//     return;
-//   }
-
-//   for (int i = l; i <= r; i++)
-//   {
-//     s = Swap(s, l, r);
-
-//     Permutation(s, l + 1, r);
-
-//     s = Swap(s, l, i);
-//   }
-// }
-
 void permutation(string s, int i)
 {
   if (i >= s.length())
@@ -103,7 +85,7 @@ void permutation(string s, int i)
 
 int main()
 {
-  string s = "abc";
+  string s = "abcd";
   // string s = "naman";
 
   // Swap(s, 0, 4);
@@ -111,13 +93,13 @@ int main()
   // cout << palindrome_String(s) << endl;
   // cout << Palindrome_String_Reverse(s) << endl;
   // cout << palindrome_String_recurssion(s, 0, s.length() - 1) << endl;
-  // PowerSet(s , 0 , "");
+  PowerSet(s , 0 , "");
 
   // cout<<Swap(s , 1 ,2);
 
   // Permutation(s, 0, s.length() - 1);
 
-  permutation(s, 0);
+  // permutation(s, 0);
 
   return 0;
 }
